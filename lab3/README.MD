@@ -15,3 +15,39 @@ We develop an hardcoded agent function that follows some fixed rules (you can se
 ### Task3.2 - An agent using evolved rules
 For this task we used fixed rules again but this time it is the genome that decides which strategy to use based on its alpha and beta parameters.
 At each turn we generate new offsprings and return the best genome based on his fitness which in this case is the winrate.
+
+### Task3.3 - An agent using minmax
+Given the high amount of computational overhead required in the development of the tree of possible choices of the two challengers, we have implemented the minmax using two types of pruning: the classic alpha-beta pruning seen during the lessons and a further pruning based on the depth of the tree. Below you can find our results.
+
+NB: no results were reported that required a computation time greater than 2 minute.
+
+## Results
+
+|  NUM_SIZE | NUM_MATCHES |   OPPONENT       |  WIN_RATE  |
+| --------- | ----------- | --------------   | ---------  |
+|    5      |      10     |   pure_random    |     1.0    |
+|    5      |      10     |    dump_PCI      |     1.0    |
+|    5      |      10     | optimal_strategy |     0.0    |
+|    6      |      10     |   pure_random    |     1.0    |
+|    6      |      10     |    dump_PCI      |     1.0    |
+|    6      |      10     | optimal_strategy |     0.0    |
+
+### Task3.4 - An agent using reinforcement learning
+We decided to train the agent through TRAINING_MATCHES = 20000 matches against the optimal_strategy (90% of the time) and pure_random (10% of the time) in order to reduce the overfitting and to update the rewards. Subsequently the final agent is tested by playing with different strategies. Below you can find our results.
+
+NB: no results were reported that required a computation time greater than 2 minute.
+
+|  NUM_SIZE | NUM_MATCHES  |   OPPONENT       |  WIN_RATE   |
+| --------- | -----------  | --------------   | ---------   |
+|    5      |      100     |   pure_random    |     0.79    |
+|    5      |      100     |    dump_PCI      |     1.0     |
+|    5      |      100     | optimal_strategy |     0.85    |
+|    6      |      100     |   pure_random    |     0.81    |
+|    6      |      100     |    dump_PCI      |     1.0     |
+|    6      |      100     | optimal_strategy |     0.0     |
+|    7      |      100     |   pure_random    |     0.75    |
+|    7      |      100     |    dump_PCI      |     1.0     |
+|    7      |      100     | optimal_strategy |     0.0     |
+|    8      |      100     |   pure_random    |     0.86    |
+|    8      |      100     |    dump_PCI      |     0.92    |
+|    8      |      100     | optimal_strategy |     0.0     |
